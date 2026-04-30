@@ -7,16 +7,10 @@ root.resizable(False, False)
 canvas = tk.Canvas(root, width=500, height=400, bg="white")
 canvas.pack()
 
-# ---------------------------
-# REQUIRED SHAPES (TOP)
-# ---------------------------
 canvas.create_rectangle(20, 20, 120, 70, fill="blue")
 canvas.create_oval(150, 20, 250, 70, fill="red")
 canvas.create_line(20, 90, 300, 90, width=3)
 
-# ---------------------------
-# VARIABLES
-# ---------------------------
 dx = 3
 dy = -3
 running = False
@@ -46,9 +40,6 @@ def create_blocks():
 
 create_blocks()
 
-# ---------------------------
-# CONTROLS
-# ---------------------------
 def move_left(event):
     if running:
         canvas.move(paddle, -20, 0)
@@ -60,9 +51,7 @@ def move_right(event):
 root.bind("<Left>", move_left)
 root.bind("<Right>", move_right)
 
-# ---------------------------
-# GAME LOOP
-# ---------------------------
+
 def update():
     global dx, dy, score, running
 
@@ -108,9 +97,7 @@ def update():
 
     root.after(20, update)
 
-# ---------------------------
-# BUTTON FUNCTIONS
-# ---------------------------
+
 def start_game():
     global running
     if not running:
@@ -144,9 +131,6 @@ def restart_game():
     # Recreate blocks
     create_blocks()
 
-# ---------------------------
-# BUTTONS
-# ---------------------------
 frame = tk.Frame(root)
 frame.pack()
 
